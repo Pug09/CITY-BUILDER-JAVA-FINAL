@@ -1,6 +1,9 @@
 package Entities;
 
 import javax.swing.*;
+
+import Entities.HUD_ELEMENTS.StatusHUD;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
