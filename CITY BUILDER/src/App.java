@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;  
-import Entities.HUD_ELEMENTS.togglebtn;
+import Entities.HUD_ELEMENTS.OPGUI;
 import Entities.*;
 public class App extends JFrame implements KeyListener {
 
@@ -21,26 +21,30 @@ public class App extends JFrame implements KeyListener {
     public JPanel GAME_FRAME;
     public App() { 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new  GridLayout());
+        frame.setLayout(new  FlowLayout());
         frame.setPreferredSize(new Dimension(ScreenWidth,ScreenHeight));
         frame.setTitle("CITY BUILDER");
         frame.setFocusable(true);
 
-        
+        //OPTION GUI YOiNKER
+        OPGUI options = new OPGUI();
+        frame.setJMenuBar(options);
+
         GAME_FRAME = new JPanel();
         
         GAME_FRAME.setBackground(new Color(50, 104, 39));
         GAME_FRAME.setPreferredSize(new Dimension(ScreenWidth * 2, ScreenHeight * 5));
-        GAME_FRAME.setBounds(0,0,ScreenWidth * 2,ScreenHeight * 4);
+        GAME_FRAME.setBounds(0,100,ScreenWidth * 2,ScreenHeight * 4);
         GAME_FRAME.setVisible(true);
         frame.add(GAME_FRAME);
+        
 
     
         //get gameIcon
         game_icon = new ImageIcon("src/thingymajig.png");
         frame.setIconImage(game_icon.getImage());
 
-       
+        
 
         //TILE GENERATION
         for(int y = 0; y <= ScreenWidth * 3; y++){
@@ -57,9 +61,7 @@ public class App extends JFrame implements KeyListener {
             GAME_FRAME.add(tile, BorderLayout.NORTH);
         }
 
-        //grab toggle button
-        togglebtn toggle = new togglebtn();
-        GAME_FRAME.add(toggle);
+        
         
 
         frame.pack();

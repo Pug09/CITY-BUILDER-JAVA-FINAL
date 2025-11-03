@@ -16,7 +16,7 @@ public class StatusHUD extends JOptionPane{
         setIcon(HUD_ICON);
         
         //OPTIONS 
-        String[] OPTIONS = {"OK","CHANGE TYPE", "DELETE"};
+        String[] OPTIONS = {"OK","SEE TYPE", "DELETE"};
         if(tile.tile_value == 0){    
         int answer = showOptionDialog(null, "TILE: " + tile.tile_value + " TILE TYPE: " + tile.tile_type , "TILE INFORMATION", YES_NO_OPTION,
         messageType, tile.real_tile_Icon, OPTIONS, 0);
@@ -25,7 +25,7 @@ public class StatusHUD extends JOptionPane{
             System.out.println("you clicked OK");
         }
         if(answer == 1){
-            System.out.println("you clicked CHANGE TYPE");    
+            System.out.println("you clicked SEE TYPE");    
         }
         if(answer == 2){
             System.out.println("you clicked DELETE");
