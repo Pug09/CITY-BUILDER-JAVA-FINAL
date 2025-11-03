@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;  
-
+import Entities.HUD_ELEMENTS.togglebtn;
 import Entities.*;
 public class App extends JFrame implements KeyListener {
 
@@ -21,7 +21,7 @@ public class App extends JFrame implements KeyListener {
     public JPanel GAME_FRAME;
     public App() { 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new  FlowLayout());
+        frame.setLayout(new  GridLayout());
         frame.setPreferredSize(new Dimension(ScreenWidth,ScreenHeight));
         frame.setTitle("CITY BUILDER");
         frame.setFocusable(true);
@@ -30,7 +30,8 @@ public class App extends JFrame implements KeyListener {
         GAME_FRAME = new JPanel();
         
         GAME_FRAME.setBackground(new Color(50, 104, 39));
-        GAME_FRAME.setBounds(0,0,ScreenWidth * 4,ScreenHeight * 2);
+        GAME_FRAME.setPreferredSize(new Dimension(ScreenWidth * 2, ScreenHeight * 5));
+        GAME_FRAME.setBounds(0,0,ScreenWidth * 2,ScreenHeight * 4);
         GAME_FRAME.setVisible(true);
         frame.add(GAME_FRAME);
 
@@ -52,32 +53,14 @@ public class App extends JFrame implements KeyListener {
                 tile.setLocation(tile.getX() + 145 * x, tile.getY());
                 GAME_FRAME.add(tile, BorderLayout.WEST);
             }
-            //tile.setLocation(tile.getX() + 50 * i, tile.getY());
-
-            //tiles tileY = new tiles();
-            //tileY.setLocation(tile.getX(), tile.getY() + 50);
-            //frame.add(tileY);
+           
             GAME_FRAME.add(tile, BorderLayout.NORTH);
         }
 
+        //grab toggle button
+        togglebtn toggle = new togglebtn();
+        GAME_FRAME.add(toggle);
         
-        /* TODO Scroll bar
-
-        Scrollbar scrollbarX = new Scrollbar(Scrollbar.HORIZONTAL);
-        scrollbarX.setBounds(0,0,ScreenWidth * 4,ScreenHeight * 2);
-        scrollbarX.setMaximum(ScreenWidth * 2);
-        scrollbarX.setMinimum(0);
-        scrollbarX.setValue(0);
-        scrollbarX.setVisible(true);
-        frame.add(scrollbarX);
-
-        Scrollbar scrollbarY = new Scrollbar(Scrollbar.VERTICAL);
-        scrollbarY.setMaximum(ScreenHeight * 2);
-        scrollbarY.setMinimum(0);
-        scrollbarY.setValue(0);
-        frame.add(scrollbarY);
-
-        */
 
         frame.pack();
         frame.setVisible(true);
